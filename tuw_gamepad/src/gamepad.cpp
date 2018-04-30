@@ -267,7 +267,8 @@ void GamepadNode::publish_commands() {
     } else {
       cmd_iws_.header.seq++;
       cmd_iws_.header.stamp = ros::Time::now();
-      cmd_iws_.steering[0] = req_vw_;
+      double steering_angle = req_vw_ * M_PI/(2.0);
+      cmd_iws_.steering[0] = steering_angle;
       cmd_iws_.revolute[0] = std::nan("1");
       cmd_iws_.steering[1] = std::nan("1");
       cmd_iws_.revolute[1] = req_vx_;
