@@ -3,13 +3,13 @@
 <launch>
   <!-- Parameters for a Logitech F710 Gamepad, "MODE" = off and "XID/HID Switch" = X -->
   
-  <arg name="robot_name" default="" />
+  <arg name="robot_name" default="ackermann" />
   <arg name="max_vx" default="1" />
   <arg name="max_vy" default="0" />
   <arg name="max_vw" default="1" />
   <arg name="scale"  default="2" />
-  <arg name="debug"  default="false" />
-  <arg name="gamepad" default="logitech_f510" />
+  <arg name="debug"  default="true" />
+  <arg name="gamepad" default="logitech_f710" />
   <arg name="command_type" default="iws_ackerman_tt02" />
 
   <!-- run the teleop node to send velocities -->
@@ -27,7 +27,8 @@
 
     <!-- run a joy node -->
     <node pkg="joy" type="joy_node" name="joy_controller" >
-      <param name="autorepeat_rate" value="5" />  
+      <param name="autorepeat_rate" value="5" />
+
     </node>
   </group>
   
